@@ -17,14 +17,15 @@ export default function App() {
   const projectsRef = useRef(null);
   const contactRef = useRef(null);
 
-  const scrollToSection = (ref) => {
+  const scrollToSection = (ref: React.RefObject<View>) => {
     ref.current?.measureLayout(
       findNodeHandle(scrollViewRef.current),
-      (x, y) => {
-        scrollViewRef.current.scrollTo({ y, animated: true });
+      (x: number, y: number) => {
+        scrollViewRef.current?.scrollTo({ y, animated: true });
       }
     );
   };
+  
 
   const scrollViewRef = useRef(null);
 
